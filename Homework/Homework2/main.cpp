@@ -34,6 +34,7 @@ std::vector<std::vector<int>> pascalTriangle(int rows) {
 }
 
 void printPascalTriangle(const std::vector<std::vector<int>>& triangle) {
+    int j = triangle.size()-1;
     for (auto i : triangle) {
         printVector(i);
     }
