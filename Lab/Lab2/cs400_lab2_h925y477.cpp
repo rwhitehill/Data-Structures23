@@ -2,11 +2,14 @@
 // Data Structures - CS 400
 // Lab 2
 
+// include functionality from cpp files
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 // Question 1: Determine if vector can be used as a set
+// loops through vector to determine if all the elements are unique
+// if unique --> return true, otherwise false
 bool vec_is_a_set(const std::vector<int>& vec) {
     for (int i = 0; i < vec.size(); i++) {
         if (std::find(vec.begin()+i+1,vec.end(),vec[i]) != vec.end()) {
@@ -17,6 +20,8 @@ bool vec_is_a_set(const std::vector<int>& vec) {
 }
 
 // Question 2: Define basic set operations
+// initialize union as vector 1 and loop through vector 2 to add
+// elements in vector 2 which are not in vector 1
 std::vector<int> set_union(std::vector<int>& v1, std::vector<int>& v2) {
     std::vector<int> temp = v1;
     for (int i = 0; i < v2.size(); i++) {
@@ -27,6 +32,9 @@ std::vector<int> set_union(std::vector<int>& v1, std::vector<int>& v2) {
     return temp;
 }
 
+// initialize intersection as empty vector and loop through vector 1
+// and search vector 2 for matching elements, which are appended 
+// to the intersection
 std::vector<int> set_intersection(std::vector<int>& v1, std::vector<int>& v2) {
     std::vector<int> temp;
     for (int i = 0; i < v1.size(); i++) {
@@ -37,6 +45,8 @@ std::vector<int> set_intersection(std::vector<int>& v1, std::vector<int>& v2) {
     return temp;
 }
 
+// initialize difference as empty, loop through vector 2 and search 
+// for common elements --> if not common, then append difference set
 std::vector<int> set_difference(std::vector<int>& v1, std::vector<int>& v2) {
     std::vector<int> temp;
     for (int i = 0; i < v1.size(); i++) {
@@ -47,6 +57,7 @@ std::vector<int> set_difference(std::vector<int>& v1, std::vector<int>& v2) {
     return temp;
 }
 
+// helper function to print generic vector elements
 void print_vec(std::vector<int>& vec){
     for (auto i : vec) {
         std::cout << i << " ";
