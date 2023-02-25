@@ -1,6 +1,6 @@
-main: *.cpp
+a.out: *.cpp
 	g++ -std=c++11 -c *.cpp
-	g++ -o main *.o
+	g++ -o a.out *.o
 
 clean:
 	rm *.o
