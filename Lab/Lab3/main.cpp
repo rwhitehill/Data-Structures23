@@ -1,7 +1,15 @@
 // import functionality from other files
 #include <iostream>
-#include "Node.h"
-#include "LinkedList.h"
+
+struct Node {
+    int n;
+    Node* next;
+
+    Node(int n)
+        : n{n}, next{nullptr}
+    {}
+};
+
 
 // define NodePtr type
 typedef Node* NodePtr;

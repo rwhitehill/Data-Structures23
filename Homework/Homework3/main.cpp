@@ -1,3 +1,7 @@
+// Richard Whitehill
+// CS 400 -- Data Structures
+// Homework 3
+
 // import functionality from other files
 #include <iostream>
 #include <list>
