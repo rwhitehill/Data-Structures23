@@ -27,7 +27,7 @@ std::vector<int> insertion_sort(std::vector<int>& vec) {
 int main() 
 {
 
-    std::vector<int> vec {8, 1, 5, 3, 9, 4, 7, 0, 6, 2};
+    std::vector<int> vec { 8,1,5,3,9,4,7,0,6,2 };
     print_vector(insertion_sort(vec));
 
     return 0;

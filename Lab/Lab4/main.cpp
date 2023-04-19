@@ -1,7 +1,13 @@
+// Richard Whitehill
+// CS 400
+// 03/27/23
+
+// include relevant functionality from different files
 #include <iostream>
 #include <vector>
 #include <list>
 
+// function that prints numbers stored in list form
 void print_listnum(const std::list<int>& list) {
     for(auto it = list.rbegin(); it != list.rend(); it++) {
         std::cout << *it;
@@ -47,15 +53,21 @@ std::list<int> add_lists(std::list<int> list1, std::list<int> list2) {
     return res;
 }
 
+// function to multiply two lists
 std::list<int> multiply_lists(std::list<int> l1, std::list<int> l2) {
-    std::list<int> res { 0 };
+    std::list<int> res { 0 }; // initialize result list
   
-    int i = 0;
-    int prod,ones,carry;
+    int i = 0; // index to keep track of place-value
+    int prod,ones,carry; // initialize variables to store intermediate multiplication
+    // loop over list 2 digits
     for(auto it2 = l2.begin(); it2 != l2.end(); it2++) {
+        // store list2 digit times list1
         std::list<int> temp;
         carry = 0;
         for(auto it1 = l1.begin(); it1 != l1.end(); it1++) {
+            // prod: whole multiplication of digits
+            // ones: ones digit from prod --> pushed to list
+            // carry: tens digit from prod --> carried over for next product
             prod  = *it1 * *it2 + carry;
             ones  = prod % 10;
             carry = prod / 10;
@@ -67,13 +79,15 @@ std::list<int> multiply_lists(std::list<int> l1, std::list<int> l2) {
         for (int j = 1; j <= i; j++) {
             temp.push_front(0);
         }
+        // add intermediate multiplication to temp
         res = add_lists(res,temp);
-        i ++;
+        i++;
     }
 
     return res;
 }
 
+// list to convert integers to list number
 std::list<int> convert_int_to_list(int n) {
     std::list<int> list;
     while (n != 0) {
@@ -83,6 +97,8 @@ std::list<int> convert_int_to_list(int n) {
     return list;
 }
 
+// calculates factorial using list multiplication
+// input is integer and converted to list in function
 void factorial(int n) {
     std::list<int> res {1};
     for(auto i = 2; i <= n; i++) {
@@ -92,7 +108,8 @@ void factorial(int n) {
 }
 
 int main() {
-
+    
+    // test cases
     factorial(10);
     std::cout << std::endl;
     factorial(100);

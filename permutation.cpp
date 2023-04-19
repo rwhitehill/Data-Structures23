@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-void permutation(std::string left, std::string right) {
+void _permutation_(std::string left, std::string right) {
     if (left.length() == 0) {
         std::cout << right << std::endl;
         return;
@@ -11,9 +11,13 @@ void permutation(std::string left, std::string right) {
         auto lockedLetter = left[i];
         std::string newLeft = left.substr(0,i) + left.substr(i+1);
         right.push_back(lockedLetter);
-        permutation(newLeft,right);
+        _permutation_(newLeft,right);
         right.pop_back();
     }
+}
+
+void permutation(std::string s) {
+    return _permutation_(s,"");
 }
 
 int main() 
@@ -25,7 +29,7 @@ int main()
     //std::cout << s.substr(0,1) << std::endl; // expect "a"
     
     std::string s = "abcd";
-    permutation(s,"");
+    permutation(s);
     
     return 0;
 }
